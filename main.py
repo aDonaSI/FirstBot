@@ -6,6 +6,6 @@ import time
 #     time.sleep(delay)
 # lock_wheel()
 
-move(200,0,10)
-time.sleep(10)
+move(200,0,5)
+time.sleep(5)
 lock_wheel()
