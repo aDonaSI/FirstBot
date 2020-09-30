@@ -1,10 +1,13 @@
 from wheel import move_straight, lock_wheel,move
+from go_to import go_to
 import time
-delay=0.1
-for k in range(100):
-    move(2,3.14/100,delay)
-    time.sleep(delay)
-lock_wheel()
+# delay=1
+# for k in range(10):
+#     move(20,3.14/10,delay)
+#     time.sleep(delay)
+# lock_wheel()
+
+go_to(10,10,45)
 
 # move(20,0,5)
 
