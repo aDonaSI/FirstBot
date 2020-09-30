@@ -10,6 +10,8 @@ import time
 
 go_to(8,-5,(3.14/4))
 lock_wheel()
+go_to(-8,5,-(3.14/4))
+lock_wheel()
 
 # move(20,0,5)
 
