@@ -31,4 +31,4 @@ def move(distance, angle, delay):
     speed_left=(dis_left/delay)*2.6
     speed_right= (dis_right/delay)*2.6
 
-    dxl_io.set_moving_speed({1: -(speed_right*1.339),2:(speed_left*1.339)})
+    dxl_io.set_moving_speed({1: -(speed_right/1.339),2:(speed_left/1.339)})
