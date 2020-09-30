@@ -1,5 +1,6 @@
 import pypot.dynamixel
 speed=0
+magic_wheel=44.81
 robot_width=18
 ports = pypot.dynamixel.get_available_ports()
 if not ports:
@@ -28,7 +29,7 @@ def move(distance, angle, delay):
     else :
         dis_left=dis_right=distance
 
-    speed_left=(dis_left/delay)/2.6
-    speed_right= (dis_right/delay)/2.6
+    speed_left=(dis_left/delay)/(2.6*3.14*2)
+    speed_right= (dis_right/delay)/(2.6*3.14*2)
 
-    dxl_io.set_moving_speed({1: -(speed_right/1.339),2:(speed_left/1.339)})
+    dxl_io.set_moving_speed({1: -(speed_right*magic_wheel),2:(speed_left*magic_wheel)})
