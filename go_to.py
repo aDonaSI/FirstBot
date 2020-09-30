@@ -5,7 +5,7 @@ y0=0
 angle0=0
 delay=1
 speed=2
-ang_speed=3.14/10
+ang_speed=3.14/5
 lin_speed=20
 
 def go_to(x,y,angle):
