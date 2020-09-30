@@ -20,11 +20,11 @@ def move_straight(speed):
 
 def move(distance, angle, delay):
     if angle <0 :
-        dis_left=distance-((abs(angle)*robot_width)/2)
-        dis_right=distance+((abs(angle)*robot_width)/2)
+        dis_left=distance-((abs(angle)*robot_width))
+        dis_right=distance+((abs(angle)*robot_width))
     elif angle>0 :
-        dis_left=distance+((abs(angle)*robot_width)/2)
-        dis_right=distance-((abs(angle)*robot_width)/2)
+        dis_left=distance+((abs(angle)*robot_width))
+        dis_right=distance-((abs(angle)*robot_width))
     else :
         dis_left=dis_right=distance
 
