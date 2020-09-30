@@ -37,7 +37,7 @@ def go_to(x,y,angle):
 def go_to_fancy(x,y,angle):
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed
 
-    corr_angle=angle0+math.atan2((y+y0)/(x+x0))
+    corr_angle=angle0+math.atan2((y+y0),(x+x0))
     move(0,corr_angle ,abs(corr_angle)/ang_speed)
     time.sleep(abs(corr_angle)/ang_speed)
 
