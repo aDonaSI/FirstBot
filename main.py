@@ -1,8 +1,6 @@
-from wheel import move_straight, lock_wheel
+from wheel import move_straight, lock_wheel,move
 import time
-
-move_straight(10)
-time.sleep(5)
-move_straight(-10)
-time.sleep(5)
-lock_wheel()
+delay=1
+for k in range(10):
+    move(0,1/10,delay)
+    time.sleep(delay)
