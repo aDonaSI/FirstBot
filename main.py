@@ -8,6 +8,6 @@ import time
 
 #move(200,0,5)
 
-move_straight(1.339)
+move_straight(13.39)
 time.sleep(2)
 lock_wheel()
