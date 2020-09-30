@@ -1,4 +1,4 @@
-from wheel import move_straight, lock_wheel,move
+from wheel import move_straight, lock_wheel,move,free_wheel
 from go_to import go_to,go_to_fancy
 import time
 
@@ -20,7 +20,7 @@ go_to_fancy(10,-10,(3.14))
 lock_wheel()
 time.sleep(2)
 go_to_fancy(0,0,0)
-lock_wheel()
+free_wheel()
 
 # move(20,0,5)
 

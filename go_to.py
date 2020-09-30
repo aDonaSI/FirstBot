@@ -6,8 +6,8 @@ y0=0
 angle0=0
 delay=1
 speed=2
-ang_speed=3.14/5
-lin_speed=20
+ang_speed=3.14/3
+lin_speed=15
 
 def go_to(x,y,angle):
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed
@@ -54,6 +54,6 @@ def go_to_fancy(x,y,angle):
 
     lock_wheel()
 
-    x0=x0-x
-    y0=y0-y
-    angle0=angle0-angle
+    x0=-x
+    y0=-y
+    angle0=-angle
