@@ -15,6 +15,7 @@ import time
 
 go_to_fancy(10,10,(3.14))
 lock_wheel()
+time.sleep(2)
 go_to_fancy(0,0,0)
 lock_wheel()
 
