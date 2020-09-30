@@ -15,6 +15,8 @@ import time
 
 go_to_fancy(10,10,(3.14))
 lock_wheel()
+go_to_fancy(0,0,0)
+lock_wheel()
 
 # move(20,0,5)
 
