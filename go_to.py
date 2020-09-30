@@ -9,6 +9,7 @@ ang_speed=3.14/10
 lin_speed=20
 
 def go_to(x,y,angle):
+    global x0,y0,angle0,delay,speed,ang_speed,lin_speed
     move(x-x0,0,(x-x0)/lin_speed)
     time.sleep((x-x0)/lin_speed)
     move(0,90,90/ang_speed)
