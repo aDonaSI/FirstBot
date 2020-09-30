@@ -8,7 +8,7 @@ import time
 #     time.sleep(delay)
 # lock_wheel()
 
-go_to(10,10,45)
+go_to(10,10,3.14/4)
 
 # move(20,0,5)
 
