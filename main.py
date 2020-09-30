@@ -1,5 +1,5 @@
 from wheel import move_straight, lock_wheel,move
-from go_to import go_to
+from go_to import go_to,go_to_fancy
 import time
 
 # delay=1
@@ -8,9 +8,12 @@ import time
 #     time.sleep(delay)
 # lock_wheel()
 
-go_to(8,-5,(3.14/4))
-lock_wheel()
-go_to(-8,5,-(3.14/4))
+# go_to(8,-5,(3.14/4))
+# lock_wheel()
+# go_to(-8,5,-(3.14/4))
+# lock_wheel()
+
+go_to_fancy(10,10,(3.14/2))
 lock_wheel()
 
 # move(20,0,5)
