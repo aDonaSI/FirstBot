@@ -13,7 +13,7 @@ def direct_kinematics(vg,vd) :
     vg *= r * 2 * math.pi / 44.81
     vmin, vmax = min(vg, vd), max(vg, vd)
     xpoint=vmin + (vmax-vmin)/2
-    thetapoint=(vd-vg)/17.9
+    thetapoint=(vmax-vmin)/17.9
     return xpoint,thetapoint
 
 def odom(dt, xpoint,thetapoint) :
