@@ -53,7 +53,7 @@ def mesured_move(d, a, t):
         odom_update(dt)
         time.sleep(dt)
 
-dt = 0.1
+dt = 0.05
 def go_to_fancy(x,y,angle):
     x_r, y_r, angle_r = 0, 0, 0
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed

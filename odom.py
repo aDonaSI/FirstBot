@@ -59,7 +59,7 @@ def idk():
     theta = 0
     while (1) :
         ctime = time.time() - start
-        if (Nstep*0.1 - round(ctime,3) < 0.01) :
+        if (Nstep*0.05 - round(ctime,3) < 0.01) :
             x,y,theta = calc_odom(dt, x,y,theta)
             print (round(x,3),round(y,3),round(theta,3))
             Nstep += 1
