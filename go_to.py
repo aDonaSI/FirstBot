@@ -6,7 +6,7 @@ y0=0
 angle0=0
 delay=1
 speed=2
-ang_speed=3.14/3
+ang_speed=3.14/2
 lin_speed=15
 image_width=200.0
 
@@ -66,5 +66,5 @@ def go_to_fancy(x,y,angle):
 def follow(distance,delay):
     ratio=distance/image_width
     ratio=(0.5-ratio)*2
-    move(lin_speed*delay, ang_speed*delay*ratio,delay)
+    move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*ratio,delay)
 
