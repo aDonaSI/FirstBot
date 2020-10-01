@@ -20,7 +20,7 @@ try:
     x, y, angle = go_to_fancy(10, 10, math.pi)
     print(x, y, angle)
     free_wheel()
-except Except as e:
+except Exception as e:
     lock_wheel()
     print(e)
 
