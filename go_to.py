@@ -34,18 +34,20 @@ def go_to(x,y,angle):
     y0=y0-y
     angle0=angle0-angle
 
+def angle_correction(angle):
+    while angle>math.pi:
+        angle-=math.pi*2
+        print("corr_angle corrigé :"+str(corr_angle))
+    while angle<-math.pi:
+        angle+=math.pi*2
+        print("corr_angle corrigé :"+str(corr_angle))
+        return angle
+
 def go_to_fancy(x,y,angle):
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed
 
     corr_angle=angle0+math.atan2((y+y0),(x+x0))
-    #corr_angle%=(math.pi*2)
-    print("corr_angle :"+str(corr_angle))
-    while corr_angle>math.pi:
-        corr_angle-=math.pi*2
-        print("corr_angle corrigé :"+str(corr_angle))
-    while corr_angle<-math.pi:
-        corr_angle+=math.pi*2
-        print("corr_angle corrigé :"+str(corr_angle))
+    corr_angle=angle_correction(corr_angle)
     move(0,corr_angle ,abs(corr_angle)/ang_speed)
     time.sleep(abs(corr_angle)/ang_speed)
 
@@ -56,13 +58,8 @@ def go_to_fancy(x,y,angle):
 
     dest_angle=angle-angle0-corr_angle
     print("dest_angle :"+str(dest_angle))
-    #dest_angle%=(math.pi*2)
-    while dest_angle>math.pi:
-        dest_angle-=(math.pi)*2
-        print("dest_angle corrigé :"+str(dest_angle))
-    while dest_angle<-math.pi:
-        dest_angle+=(math.pi)*2
-        print("dest_angle corrigé :"+str(dest_angle))
+    dest_angle=angle_correction(dest_angle)
+    
     move(0,dest_angle,abs(dest_angle)/ang_speed)
     time.sleep(abs(dest_angle)/ang_speed)
 
@@ -71,5 +68,6 @@ def go_to_fancy(x,y,angle):
     x0=-x
     y0=-y
     angle0=-angle
-    if angle0>(math.pi):
-        angle0-=(math.pi)*2
+    # if angle0>(math.pi):
+    #     angle0-=(math.pi)*2
+
