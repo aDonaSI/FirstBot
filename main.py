@@ -13,7 +13,6 @@ delay=1
 # lock_wheel()
 # go_to(-8,5,-(3.14/4))
 # lock_wheel()
-dxl_io.set_wheel_mode([1,2])
 x, y, angle = go_to_fancy(10, 10, math.pi)
 print(x, y, angle)
 free_wheel()
