@@ -39,6 +39,7 @@ def go_to_fancy(x,y,angle):
 
     corr_angle=angle0+math.atan2((y+y0),(x+x0))
     #corr_angle%=(math.pi*2)
+    print("corr_angle :"+corr_angle)
     if corr_angle>math.pi:
         corr_angle-=math.pi*2
     move(0,corr_angle ,abs(corr_angle)/ang_speed)
@@ -50,6 +51,7 @@ def go_to_fancy(x,y,angle):
     time.sleep(abs(distance)/lin_speed)
 
     dest_angle=angle-angle0-corr_angle
+    print("dest_angle :"+dest_angle)
     #dest_angle%=(math.pi*2)
     if dest_angle>math.pi:
         dest_angle-=(math.pi)*2
