@@ -24,7 +24,7 @@ def odom(dt, xpoint,thetapoint) :
 def odom_tick(xprec, yprec, thetaprec, dx, dy ,dtheta) :
     theta = thetaprec + dtheta
     x = xprec + dx * math.cos(theta) + dy * math.sin(theta)
-    y = yprec - dx * math.sin(theta) + dy * math.cos(theta)
+    y = yprec + dx * math.sin(theta) - dy * math.cos(theta)
     return x,y,theta
 
 def calc_odom (dt, xprec,yprec,thetaprec) :
