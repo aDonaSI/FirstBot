@@ -36,11 +36,11 @@ def calc_odom (dt, xprec,yprec,thetaprec) :
 
 start = time.time()
 
-Nstep = 0
+# Nstep = 0
 
-x = 0
-y = 0
-theta = 0
+# x = 0
+# y = 0
+# theta = 0
 
 def odom_update(dt):
     global x, y, theta
@@ -48,3 +48,17 @@ def odom_update(dt):
 
 def odom_get():
     return x, y, theta
+
+def idk():
+    dt = .1
+    Nstep = 0
+
+    x = 0
+    y = 0
+    theta = 0
+    while (1) :
+        ctime = time.time() - start
+        if (Nstep*0.1 - round(ctime,3) < 0.01) :
+            x,y,theta = calc_odom(dt, x,y,theta)
+            print (round(x,3),round(y,3),round(theta,3))
+            Nstep += 1

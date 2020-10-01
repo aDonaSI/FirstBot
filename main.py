@@ -3,7 +3,7 @@ from go_to import go_to,go_to_fancy,follow
 import time
 import math
 
-from odom import odom_update, odom_get
+from odom import odom_update, odom_get, idk
 
 delay=1
 # for k in range(10):
@@ -20,13 +20,16 @@ delay=1
 #     x, y, angle = go_to_fancy(10, 10, math.pi)
 #     print(x, y, angle)
 #     free_wheel()
-# except:
+# except Except as e:
 #     lock_wheel()
+#     print(e)
 
-while True:
-    odom_update(.1)
-    print(odom_get())
-    time.sleep(.1)
+# while True:
+#     odom_update(.1)
+#     print(odom_get())
+#     time.sleep(.1)
+
+idk()
 
 # time.sleep(2)
 # go_to_fancy(10,-10,(3.14))
