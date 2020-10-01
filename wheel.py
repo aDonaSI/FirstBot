@@ -3,7 +3,7 @@ import math
 speed=0
 
 magic_wheel=44.81
-robot_width=18
+robot_width=17.9
 ports = pypot.dynamixel.get_available_ports()
 if not ports:
     exit('No port')
