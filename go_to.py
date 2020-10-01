@@ -42,6 +42,7 @@ def go_to_fancy(x,y,angle):
     print("corr_angle :"+str(corr_angle))
     if corr_angle>math.pi:
         corr_angle%=math.pi*2
+        print("corr_angle corrigé :"+str(corr_angle))
     move(0,corr_angle ,abs(corr_angle)/ang_speed)
     time.sleep(abs(corr_angle)/ang_speed)
 
@@ -55,6 +56,7 @@ def go_to_fancy(x,y,angle):
     #dest_angle%=(math.pi*2)
     if dest_angle>math.pi:
         dest_angle%=(math.pi)*2
+        print("dest_angle corrigé :"+str(dest_angle))
     move(0,dest_angle,abs(dest_angle)/ang_speed)
     time.sleep(abs(dest_angle)/ang_speed)
 
