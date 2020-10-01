@@ -11,7 +11,8 @@ r = 2.6
 def direct_kinematics(vg,vd) :
     vd=-vd * r * 2 * math.pi / 44.81  #même sens positif que la roue gauche
     vg *= r * 2 * math.pi / 44.81
-    xpoint=vd + (vd-vg)/2
+    vmin, vmax = min(vg, vd), max(vg, vd)
+    xpoint=vmin + (vmax-vmin)/2
     thetapoint=(vd-vg)/17.9
     return xpoint,thetapoint
 
@@ -24,7 +25,7 @@ def odom(dt, xpoint,thetapoint) :
 def odom_tick(xprec, yprec, thetaprec, dx, dy ,dtheta) :
     theta = thetaprec + dtheta
     x = xprec + dx * math.cos(theta) + dy * math.sin(theta)
-    y = yprec - dx * math.sin(theta) + dy * math.cos(theta)
+    y = yprec + dx * math.sin(theta) - dy * math.cos(theta)
     return x,y,theta
 
 def calc_odom (dt, xprec,yprec,thetaprec) :
