@@ -8,7 +8,7 @@ delay=1
 speed=2
 ang_speed=3.14/2
 lin_speed=15
-image_width=200.0
+image_width=320.0
 
 
 def go_to(x,y,angle):
