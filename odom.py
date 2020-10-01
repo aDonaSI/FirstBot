@@ -10,7 +10,7 @@ if not ports:
 dxl_io = pypot.dynamixel.DxlIO(ports[0])
 dxl_io.set_joint_mode([1,2])
 
-dt = 0.1
+#dt = 0.1
 r = 2.6
 
 def direct_kinematics(vg,vd) :
@@ -32,7 +32,7 @@ def odom_tick(xprec, yprec, thetaprec, dx, dy ,dtheta) :
     y = yprec + dx * math.sin(theta) - dy * math.cos(theta)
     return x,y,theta
 
-def calc_odom (xprec,yprec,thetaprec) :
+def calc_odom (dt, xprec,yprec,thetaprec) :
     vd, vg = dxl_io.get_present_speed([1,2])
     xpoint, thetapoint = direct_kinematics(vg,vd)
     dx,dy,dtheta = odom(dt, xpoint, thetapoint)
@@ -47,9 +47,9 @@ x = 0
 y = 0
 theta = 0
 
-while (1) :
-    ctime = time.time() - start
-    if (Nstep*0.1 - round(ctime,3) < 0.01) :
-        x,y,theta = calc_odom(x,y,theta)
-        print (round(x,3),round(y,3),round(theta,3))
-        Nstep += 1
+def odom_update(dt):
+    global x, y, theta
+    x,y,theta = calc_odom(dt, x,y,theta)
+
+def odom_get():
+    return x, y, theta
