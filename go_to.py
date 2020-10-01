@@ -41,7 +41,7 @@ def angle_correction(angle):
     while angle<-math.pi:
         angle+=math.pi*2
         print("corr_angle corrigé :"+str(corr_angle))
-        return angle
+    return angle
 
 def go_to_fancy(x,y,angle):
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed
