@@ -2,6 +2,7 @@ import pypot.dynamixel
 import time
 import sched
 import math
+from wheel import get_speed
 
 
 #dt = 0.1
@@ -27,7 +28,7 @@ def odom_tick(xprec, yprec, thetaprec, dx, dy ,dtheta) :
     return x,y,theta
 
 def calc_odom (dt, xprec,yprec,thetaprec) :
-    vd, vg = dxl_io.get_present_speed([1,2])
+    vd, vg = get_speed()
     xpoint, thetapoint = direct_kinematics(vg,vd)
     dx,dy,dtheta = odom(dt, xpoint, thetapoint)
     return odom_tick(xprec,yprec,thetaprec,dx,dy,dtheta)
