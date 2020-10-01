@@ -7,8 +7,8 @@ y0=0
 angle0=0
 delay=1
 speed=2
-ang_speed=3.14/2
-lin_speed=12
+ang_speed=3.14/5
+lin_speed=5
 image_width=320.0
 
 
