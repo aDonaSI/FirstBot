@@ -13,11 +13,12 @@ delay=1
 # lock_wheel()
 # go_to(-8,5,-(3.14/4))
 # lock_wheel()
-# x, y, angle = go_to_fancy(10, 10, math.pi)
-# print(x, y, angle)
-# free_wheel()
-
- lock_wheel()
+try:
+    x, y, angle = go_to_fancy(10, 10, math.pi)
+    print(x, y, angle)
+    free_wheel()
+except:
+    lock_wheel()
 # time.sleep(2)
 # go_to_fancy(10,-10,(3.14))
 # lock_wheel()

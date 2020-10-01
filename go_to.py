@@ -47,9 +47,10 @@ def angle_correction(angle):
     return angle
 
 def mesured_move(d, a, t):
-    for k in range(int(t/dt)):
-        move(d, a, dt)
-        odom_update()
+    n = int(t/dt)
+    for k in range(n):
+        move(d/n, a/n, dt)
+        odom_update(dt)
         time.sleep(dt)
 
 dt = 0.1
