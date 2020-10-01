@@ -61,3 +61,5 @@ def go_to_fancy(x,y,angle):
     x0=-x
     y0=-y
     angle0=-angle
+    if angle0>(math.pi):
+        angle0-=(math.pi)*2
