@@ -37,10 +37,10 @@ def go_to(x,y,angle):
 def angle_correction(angle):
     while angle>math.pi:
         angle-=math.pi*2
-        print("corr_angle corrigé :"+str(corr_angle))
+        
     while angle<-math.pi:
         angle+=math.pi*2
-        print("corr_angle corrigé :"+str(corr_angle))
+        
     return angle
 
 def go_to_fancy(x,y,angle):
