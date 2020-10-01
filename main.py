@@ -2,7 +2,7 @@ from wheel import move_straight, lock_wheel,move,free_wheel
 from go_to import go_to,go_to_fancy,follow
 import time
 
- delay=1
+delay=1
 # for k in range(10):
 #     move(20,3.14/10,delay)
 #     time.sleep(delay)
