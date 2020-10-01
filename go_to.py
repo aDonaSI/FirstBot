@@ -1,4 +1,5 @@
 from wheel import move, lock_wheel
+from odom import odom_update, odom_get
 import time
 import math
 x0=0
@@ -7,7 +8,7 @@ angle0=0
 delay=1
 speed=2
 ang_speed=3.14/2
-lin_speed=15
+lin_speed=12
 image_width=320.0
 
 
@@ -45,23 +46,38 @@ def angle_correction(angle):
         
     return angle
 
+def mesured_move(d, a, t):
+    n = int(t/dt)
+    for k in range(n):
+        move(d/n, a/n, dt)
+        odom_update(dt)
+        time.sleep(dt)
+
+dt = 0.1
 def go_to_fancy(x,y,angle):
+    x_r, y_r, angle_r = 0, 0, 0
     global x0,y0,angle0,delay,speed,ang_speed,lin_speed
+
     corr_angle=angle0+math.atan2((y+y0),(x+x0))
     corr_angle=angle_correction(corr_angle)
-    move(0,corr_angle ,abs(corr_angle)/ang_speed)
-    time.sleep(abs(corr_angle)/ang_speed)
+    mesured_move(0, corr_angle, abs(corr_angle)/ang_speed)
+    print(odom_get())
+    
     distance=math.sqrt((y+y0)**2+(x+x0)**2)
-    move(distance,0,abs(distance)/lin_speed)
-    time.sleep(abs(distance)/lin_speed)
+    mesured_move(distance, 0, abs(distance)/lin_speed)
+    print(odom_get())
+
     dest_angle=angle-angle0-corr_angle
     dest_angle=angle_correction(dest_angle)
-    move(0,dest_angle,abs(dest_angle)/ang_speed)
-    time.sleep(abs(dest_angle)/ang_speed)
+    mesured_move(0, dest_angle, abs(dest_angle)/ang_speed)
+    print(odom_get())
+
     lock_wheel()
     x0=-x
     y0=-y
     angle0=-angle
+
+    return odom_get()
 
 def follow(distance,delay):
     ratio=distance/image_width

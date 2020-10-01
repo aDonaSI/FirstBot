@@ -35,3 +35,6 @@ def move(distance, angle, delay):
     speed_right= (dis_right/delay)/(2.6*math.pi*2)
 
     dxl_io.set_moving_speed({1: -(speed_right*magic_wheel),2:(speed_left*magic_wheel)})
+
+def get_speed():
+    return dxl_io.get_present_speed([1,2])
