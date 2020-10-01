@@ -17,7 +17,7 @@ delay=1
 # lock_wheel()
 
 try:
-    x, y, angle = go_to_fancy(10, 0, math.pi)
+    x, y, angle = go_to_fancy(0, 0, math.pi)
     print(x, y, angle)
     free_wheel()
 except Exception as e:
