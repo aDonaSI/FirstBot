@@ -8,7 +8,7 @@ angle0=0
 delay=1
 speed=2
 ang_speed=3.14/2
-lin_speed=15
+lin_speed=12
 image_width=320.0
 
 
@@ -61,13 +61,16 @@ def go_to_fancy(x,y,angle):
     corr_angle=angle0+math.atan2((y+y0),(x+x0))
     corr_angle=angle_correction(corr_angle)
     mesured_move(0, corr_angle, abs(corr_angle)/ang_speed)
+    print(odom_get())
     
     distance=math.sqrt((y+y0)**2+(x+x0)**2)
     mesured_move(distance, 0, abs(distance)/lin_speed)
+    print(odom_get())
 
     dest_angle=angle-angle0-corr_angle
     dest_angle=angle_correction(dest_angle)
     mesured_move(0, dest_angle, abs(dest_angle)/ang_speed)
+    print(odom_get())
 
     lock_wheel()
     x0=-x
