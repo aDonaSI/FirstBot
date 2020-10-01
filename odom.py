@@ -37,11 +37,11 @@ def calc_odom (dt, xprec,yprec,thetaprec) :
 
 start = time.time()
 
-# Nstep = 0
+Nstep = 0
 
-# x = 0
-# y = 0
-# theta = 0
+x = 0
+y = 0
+theta = 0
 
 def odom_update(dt):
     global x, y, theta

@@ -16,20 +16,20 @@ delay=1
 # go_to(-8,5,-(3.14/4))
 # lock_wheel()
 
-# try:
-#     x, y, angle = go_to_fancy(10, 10, math.pi)
-#     print(x, y, angle)
-#     free_wheel()
-# except Except as e:
-#     lock_wheel()
-#     print(e)
+try:
+    x, y, angle = go_to_fancy(0, 0, math.pi)
+    print(x, y, angle)
+    free_wheel()
+except Exception as e:
+    lock_wheel()
+    print(e)
 
 # while True:
 #     odom_update(.1)
 #     print(odom_get())
 #     time.sleep(.1)
 
-idk()
+#idk()
 
 # time.sleep(2)
 # go_to_fancy(10,-10,(3.14))
