@@ -29,10 +29,10 @@ delay=1
 # lock_wheel()
 
 for k in range(10):
-    follow(170,delay)
+    follow(160,delay)
     time.sleep(delay)
 
 for k in range(10):
-    follow(170-(k*17),delay)
+    follow(160-(k*16),delay)
     time.sleep(delay)
 free_wheel()
