@@ -22,13 +22,13 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         
-        # ratio=distance/160
-        # ratio=(0.5-ratio)*2
+        ratio=distance/160
+        ratio=(0.5-ratio)*2
         #print("time cost:", t1-t0, "distance image:", distance)
         
         follow(distance, t1-t0)
         #time.sleep(.5)
-        #print("da:", da/n, "ratio:", ratio, "is color:", color, "time:", t1-t0)
+        print("ratio:", ratio, "is color:", color, "time:", t1-t0)
 
 
 def task_goto(x, y, theta):
