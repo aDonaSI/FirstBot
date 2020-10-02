@@ -191,7 +191,10 @@ def get_distance_suivi():
     global lastcenter
 
     ret, frame = cap.read()
+    frame = np.array(frame)
+    frame = np.transpose(frame,(1,0,2))
     frame = frame[160:]
+    frame = np.transpose(frame,(1,0,2))
     green_processing(frame)
     dataset = color_pixel_coord(frame)
 
