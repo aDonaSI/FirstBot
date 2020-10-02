@@ -1,4 +1,4 @@
-from wheel import move_straight, lock_wheel,move,free_wheel
+from wheel import move_straight, lock_wheel, move, free_wheel
 from go_to import go_to,go_to_fancy,follow
 from suivi import get_distance_suivi, get_current_color, end_camera
 from odom import odom_update, odom_get, print_circuit
@@ -16,6 +16,7 @@ def time_exec(f, args=None):
 
 
 def task_follow():
+    dt = .1
     while 1:
 
         t0 = time.time()
