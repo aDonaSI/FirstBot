@@ -40,7 +40,7 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         print("time cost:", t1-t0, "distance image:", distance)
-        follow(320-distance, .5)
+        follow(distance, .5)
 
 follow_line()
 end_camera()
