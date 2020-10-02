@@ -40,10 +40,10 @@ def go_to(x,y,angle):
 def angle_correction(angle):
     while angle>math.pi:
         angle-=math.pi*2
-        
+
     while angle<-math.pi:
         angle+=math.pi*2
-        
+
     return angle
 
 def mesured_move(d, a, t):
@@ -62,7 +62,7 @@ def go_to_fancy(x,y,angle):
     corr_angle=angle_correction(corr_angle)
     mesured_move(0, corr_angle, abs(corr_angle)/ang_speed)
     print(odom_get())
-    
+
     distance=math.sqrt((y+y0)**2+(x+x0)**2)
     mesured_move(distance, 0, abs(distance)/lin_speed)
     print(odom_get())
@@ -80,25 +80,17 @@ def go_to_fancy(x,y,angle):
     return odom_get()
 
 
+dist_cam = 15.0
+view_width = 4.5
 
-# list_voila = []
-def follow(distance,delay):
-    ratio=distance/image_width
-    ratio=(0.5-ratio)*2
+def follow(distance, delay):
+    ratio = distance / image_width
+    ratio = (0.5-ratio) * 2
 
-    
-    # list_voila.append(ratio)
-    # if len(list_voila) > 10:
-    #     list_voila.pop(0)
-    # da, n = 0.0, 1
-    # for k in range(len(list_voila)):
-    #     da+= list_voila[k]*k
-    #     n+= k
-    # ratio = da/n
-        
-    move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio*abs(ratio)), delay)
+    off = ratio * view_width
 
-# def pixel_to_world(i,j):
-#     beta=((h-j)/h)*tetah+beta0
-#     y=z*math.tan(beta)
+    angle = math.atan(off / dist_cam)
+    distance = dist_cam / math.cos(angle)
 
+    #move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio*abs(ratio)), delay)
+    move(distance, angle, delay)

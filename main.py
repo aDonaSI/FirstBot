@@ -14,27 +14,25 @@ def time_exec(f, args):
 
 
 
-def follow_line():
+def task_follow():
     while 1:
-        #lock_wheel()
+        lock_wheel()
+
         t0 = time.time()
         distance, color = get_distance_suivi()
-        #odom_qqch(get_current_color())
         t1 = time.time()
-        
-        ratio=distance/160
-        ratio=(0.5-ratio)*2
-        #print("time cost:", t1-t0, "distance image:", distance)
-        
-        follow(distance, t1-t0)
-        #time.sleep(.5)
-        print("ratio:", ratio, "is color:", color, "time:", t1-t0)
 
+        print("ratio:", (0.5-distance/160)*2, "is color:", color, "time:", t1-t0)
+        if input("Press Enter to continue..."): break
+
+        follow(distance, 2)
+        time.sleep(2)
 
 def task_goto(x, y, theta):
     go_to_fancy(x, y, theta)
 
 def task_odom():
+    free_wheel()
     dt = .1
     def loop():
         odom_update(dt)
@@ -45,7 +43,7 @@ def task_odom():
         time.sleep(dt - time_cost)
 
 
-follow_line() # tmp
+task_follow() # tmp
 
 ## __main__
 # if sys.argv[1] == "follow":
