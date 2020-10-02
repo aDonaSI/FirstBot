@@ -13,14 +13,6 @@ def time_exec(f, args):
     return time.time() - before
 
 
-## tasks
-def task_follow():
-    distance_in_image
-    def loop_analyse():
-        distance = get_distance_suivi()
-    def loop_odom(dt):
-        odom_follow(dt, get_current_color())
-
 def follow_line():
     while 1:
         lock_wheel()
@@ -54,7 +46,7 @@ def task_odom():
         time.sleep(dt - time_cost)
 
 
-task_follow() # tmp
+follow_line() # tmp
 
 ## __main__
 # if sys.argv[1] == "follow":
