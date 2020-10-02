@@ -13,14 +13,15 @@ COLOR = 0
 print("COLOR = ", COLOR)
 GREEN = 0
 TIME = 1
-lastcenter = 80
+largeur = 80
+lastcenter = largeur/2
 
 #Initialisation
 cap = cv2.VideoCapture(-1)
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
-cap.set(3, 160)
+cap.set(3, largeur)
 cap.set(4, 180)
 
 #/////////////////////Functions
@@ -166,7 +167,7 @@ def color_pixel_coord(frame):
 #Behavior
 
 def behavior(centers,lastcenter):
-    destination = 80
+    destination = largeur/2
     distance = abs(centers[0][1]-centers[1][1])
     if (distance>80):
         if (abs(centers[0][1]-lastcenter) < abs(centers[1][1]-lastcenter)):
