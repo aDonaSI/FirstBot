@@ -25,8 +25,8 @@ def task_follow():
         print("ratio:", (0.5-distance/160)*2, "is color:", color, "time:", t1-t0)
         #if input("Press Enter to continue..."): break
 
-        follow(distance, 2)
-        time.sleep(2)
+        follow(distance, t1-t0)
+        #time.sleep(2)
 
 def task_goto(x, y, theta):
     go_to_fancy(x, y, theta)
