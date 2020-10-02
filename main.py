@@ -23,7 +23,7 @@ def task_follow():
         t1 = time.time()
 
         print("ratio:", (0.5-distance/160)*2, "is color:", color, "time:", t1-t0)
-        if input("Press Enter to continue..."): break
+        #if input("Press Enter to continue..."): break
 
         follow(distance, 2)
         time.sleep(2)

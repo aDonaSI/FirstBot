@@ -87,7 +87,7 @@ def follow(distance, delay):
     ratio = distance / image_width
     ratio = (0.5-ratio) * 2
 
-    off = ratio * view_width
+    off = -ratio * view_width
 
     angle = math.atan(off / dist_cam)
     distance = dist_cam / math.cos(angle)
