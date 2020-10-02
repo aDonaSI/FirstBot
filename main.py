@@ -15,14 +15,14 @@ def time_exec(f, args):
 
 def follow_line():
     while 1:
-        lock_wheel()
+        #lock_wheel()
         t0 = time.time()
         distance = get_distance_suivi()
         #odom_qqch(get_current_color())
         t1 = time.time()
-        print("time cost:", t1-t0, "distance image:", distance)
+        #print("time cost:", t1-t0, "distance image:", distance)
         follow(distance, .5)
-        time.sleep(.5)
+        #time.sleep(.5)
 
 
 def task_goto(x, y, theta):

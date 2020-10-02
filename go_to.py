@@ -7,7 +7,7 @@ y0=0
 angle0=0
 delay=1
 speed=2
-ang_speed=3.14/7.5
+ang_speed=3.14/10
 lin_speed=5
 image_width=160.0
 
@@ -82,6 +82,7 @@ def go_to_fancy(x,y,angle):
 def follow(distance,delay):
     ratio=distance/image_width
     ratio=(0.5-ratio)*2
+    print(ratio)
     move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*ratio, delay)
 
 # def pixel_to_world(i,j):
