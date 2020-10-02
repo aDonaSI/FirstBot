@@ -13,6 +13,8 @@ def time_exec(f, args):
     return time.time() - before
 
 
+list_voila = []
+
 def follow_line():
     while 1:
         #lock_wheel()
@@ -25,7 +27,15 @@ def follow_line():
         ratio=(0.5-ratio)*2
         print("ratio:", ratio, "is color:", color, "time:", t1-t0)
         #print("time cost:", t1-t0, "distance image:", distance)
-        follow(distance, t1-t0)
+        
+        list_voila.append(distance)
+        if len(list_voila) > 10:
+            list_voila.pop(0)
+        da = 0.0
+        for k in range(len(list_voila)):
+            da+= list_voila[k]
+        da/= 10
+        follow(da, t1-t0)
         #time.sleep(.5)
 
 
