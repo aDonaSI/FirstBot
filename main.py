@@ -27,9 +27,9 @@ delay=0.1
 
 def odom():
     while True:
-    odom_update(.1)
-    print(odom_get())
-    time.sleep(.1)
+        odom_update(.1)
+        print(odom_get())
+        time.sleep(.1)
 
 
 def follow_line():
