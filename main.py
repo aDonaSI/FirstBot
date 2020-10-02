@@ -16,12 +16,12 @@ def time_exec(f, args):
 
 def task_follow():
     while 1:
-        lock_wheel()
 
         t0 = time.time()
         distance, color = get_distance_suivi()
         t1 = time.time()
 
+        lock_wheel()
         print("ratio:", (0.5-distance/160)*2, "is color:", color, "time:", t1-t0)
         #if input("Press Enter to continue..."): break
 
