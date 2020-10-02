@@ -7,6 +7,7 @@ import numpy as np
 #import matplotlib.pylab as plt
 import colorsys
 from wheel import free_wheel
+import time
 
 #Global variables
 COLOR = 0
@@ -190,17 +191,24 @@ def get_current_color():
 
 def get_distance_suivi():
     global lastcenter
-
+    t0 = time.time()
     ret, frame = cap.read()
     frame = np.array(frame)
     frame = frame[:,160:,:]
-    
+    t1 = time.time()
+    print("frame160:",t1-t0)
     green_processing(frame)
+    t2 = time.time()
+    print("Green processing:",t2-t1)
     dataset = color_pixel_coord(frame)
+    t3=time.time()
+    print("colorpixelcoord",t3-t2)
 
     if (len(dataset)>0):
         centers = kmeans(dataset,2)
         lastcenter = behavior(centers,lastcenter)
+    t4 = time.time()
+    print("kmeans:",t4-t3)
 #Testing
        # cv2.circle(frame,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
        # cv2.circle(frame,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
