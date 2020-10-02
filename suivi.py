@@ -197,6 +197,7 @@ def get_distance_suivi():
     frame = frame[:,160:,:]
     t1 = time.time()
     print("frame160:",t1-t0)
+    print("frame shape",frame.shape)
     green_processing(frame)
     t2 = time.time()
     print("Green processing:",t2-t1)
