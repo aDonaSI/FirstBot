@@ -8,7 +8,7 @@ import math
 import sys
 
 
-def time_exec(f, args):
+def time_exec(f, args=None):
     before = time.time()
     f(args)
     return time.time() - before
