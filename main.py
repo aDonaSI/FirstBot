@@ -43,17 +43,16 @@ def task_odom():
         time.sleep(dt - time_cost)
 
 
-task_follow() # tmp
 
 ## __main__
-# if sys.argv[1] == "follow":
-#     task_follow()
-#
-# elif sys.argv[1] == "goto":
-#     x, y, theta = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
-#     task_goto()
-#
-# elif sys.argv[1] == "odom":
-#     task_odom()
+if sys.argv[1] == "follow":
+    task_follow()
+
+elif sys.argv[1] == "goto":
+    x, y, theta = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+    task_goto()
+
+elif sys.argv[1] == "odom":
+    task_odom()
 
 end_camera()
