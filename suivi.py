@@ -138,25 +138,25 @@ def getCentroids(dataSet, labels, k):
 
 def color_pixel_coord(frame):
     global COLOR
-    h,w = frame.shape[0]//2,frame.shape[1]//2
+    h,w = frame.shape[0],frame.shape[1]
     L = []
     if (COLOR == 0):
-        for i in range(0, h, 2):
-            for j in range(0, w, 2):
+        for i in range(h):
+            for j in range(w):
                 rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.56) and (hvalue>0.50) and (s>0.7)):
                     L.append([i,j])
     if (COLOR == 1):
-        for i in range(0, h, 2):
-            for j in range(0, w, 2):
+        for i in range(h):
+            for j in range(w):
                 rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.10) and (hvalue>0.04) and (s>0.7)):
                     L.append([i,j])
     if (COLOR == 2):
-        for i in range(0, h, 2):
-            for j in range(0, w, 2):
+        for i in range(h):
+            for j in range(w):
                 rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.68) and (hvalue>0.64) and (s>0.7)):
