@@ -17,9 +17,13 @@ def follow_line():
     while 1:
         #lock_wheel()
         t0 = time.time()
-        distance = get_distance_suivi()
+        distance, color = get_distance_suivi()
         #odom_qqch(get_current_color())
         t1 = time.time()
+        
+        ratio=distance/image_width
+        ratio=(0.5-ratio)*2
+        print("ratio:", ratio, "is color:", color, "time:", t1-t0)
         #print("time cost:", t1-t0, "distance image:", distance)
         follow(distance, .5)
         #time.sleep(.5)

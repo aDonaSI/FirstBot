@@ -178,12 +178,12 @@ def behavior(centers,lastcenter):
             destination = centers[1][1]
     else:
         destination = (centers[0][1] + centers[1][1])/2
-#Test
-    print("Destination: ",destination,"\n")
-    if (destination>80):
-        print("Tourner à droite")
-    else:
-        print("Tourner à gauche")
+# #Test
+#     print("Destination: ",destination,"\n")
+#     if (destination>80):
+#         print("Tourner à droite")
+#     else:
+#         print("Tourner à gauche")
 #EO Test
     return destination
 
@@ -207,7 +207,7 @@ def get_distance_suivi():
     #print("COLOR = ",COLOR,"\n")
     #cv2.imshow("Frame", frame)
 
-    return lastcenter
+    return lastcenter, len(dataset)>0
 #EO Testing
 
         # key = cv2.waitKey(1)
