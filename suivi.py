@@ -37,8 +37,8 @@ def pixel_is_green(threevalues):
         return True
     return False
 
-def green_bar_is_detected(frame):#Gérer la saturation
-    #src = frame[160:]
+def green_bar_is_detected(src):#Gérer la saturation
+
 
     h,w = src.shape[0],src.shape[1]
 
@@ -191,7 +191,7 @@ def get_distance_suivi():
     global lastcenter
 
     ret, frame = cap.read()
-    src = frame[160:]
+    frame = frame[160:]
     green_processing(frame)
     dataset = color_pixel_coord(frame)
 

@@ -1,11 +1,11 @@
 from wheel import move_straight, lock_wheel,move,free_wheel
 from go_to import go_to,go_to_fancy,follow
-# import suivi import get_distance_suivi, get_current_color, end_camera
-import suivi
+from suivi import get_distance_suivi, get_current_color, end_camera
+from odom import odom_update, odom_get, idk
+
 import time
 import math
 
-from odom import odom_update, odom_get, idk
 
 delay=0.1
 # for k in range(10):
@@ -36,13 +36,13 @@ def odom():
 def follow_line():
     while 1:
         t0 = time.time()
-        distance = suivi.get_distance_suivi()
+        distance = get_distance_suivi()
         #odom_qqch(get_current_color())
         t1 = time.time()
         follow(distance, t1-t0)
 
 follow_line()
-suivi.end_camera()
+end_camera()
 
 #idk()
 
