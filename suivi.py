@@ -192,6 +192,7 @@ def get_distance_suivi():
 
     ret, frame = cap.read()
     frame = frame[160:]
+    print(frame.shape)
     green_processing(frame)
     dataset = color_pixel_coord(frame)
 
