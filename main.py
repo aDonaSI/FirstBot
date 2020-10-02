@@ -31,7 +31,7 @@ def follow_line():
         list_voila.append(distance)
         if len(list_voila) > 10:
             list_voila.pop(0)
-        da, n = 0.0, 0
+        da, n = 0.0, 1
         for k in range(len(list_voila)):
             da+= list_voila[k]*k
             n+= k
