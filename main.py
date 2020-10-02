@@ -36,7 +36,7 @@ def task_odom():
     free_wheel()
     dt = .1
     def loop(_):
-        odom_update(dt)
+        odom_update()
         print(odom_get())
 
     while True:
