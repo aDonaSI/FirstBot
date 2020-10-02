@@ -192,9 +192,8 @@ def get_distance_suivi():
 
     ret, frame = cap.read()
     frame = np.array(frame)
-    frame = np.transpose(frame,(1,0,2))
-    frame = frame[160:]
-    frame = np.transpose(frame,(1,0,2))
+    frame = frame[:,160:,:]
+    
     green_processing(frame)
     dataset = color_pixel_coord(frame)
 
