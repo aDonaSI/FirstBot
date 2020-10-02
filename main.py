@@ -25,7 +25,7 @@ def follow_line():
         ratio=(0.5-ratio)*2
         print("ratio:", ratio, "is color:", color, "time:", t1-t0)
         #print("time cost:", t1-t0, "distance image:", distance)
-        follow(distance, .5)
+        follow(distance, t1-t0)
         #time.sleep(.5)
 
 
