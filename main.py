@@ -25,7 +25,6 @@ def follow_line():
         
         ratio=distance/160
         ratio=(0.5-ratio)*2
-        print("ratio:", ratio, "is color:", color, "time:", t1-t0)
         #print("time cost:", t1-t0, "distance image:", distance)
         
         list_voila.append(distance)
@@ -37,6 +36,7 @@ def follow_line():
             n+= k
         follow(da/n, t1-t0)
         #time.sleep(.5)
+        print("da:", da/n, "ratio:", ratio, "is color:", color, "time:", t1-t0)
 
 
 def task_goto(x, y, theta):
