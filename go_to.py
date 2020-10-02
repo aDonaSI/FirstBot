@@ -9,7 +9,7 @@ delay=1
 speed=2
 ang_speed=3.14/5
 lin_speed=5
-image_width=320.0
+image_width=160.0
 
 
 def go_to(x,y,angle):
@@ -83,4 +83,8 @@ def follow(distance,delay):
     ratio=distance/image_width
     ratio=(0.5-ratio)*2
     move(lin_speed*delay*(2-abs(ratio)), ang_speed*delay*ratio,delay)
+
+# def pixel_to_world(i,j):
+#     beta=((h-j)/h)*tetah+beta0
+#     y=z*math.tan(beta)
 

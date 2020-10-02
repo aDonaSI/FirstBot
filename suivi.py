@@ -13,14 +13,14 @@ COLOR = 0
 print("COLOR = ", COLOR)
 GREEN = 0
 TIME = 1
-lastcenter = 160
+lastcenter = 80
 
 #Initialisation
 cap = cv2.VideoCapture(-1)
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
-cap.set(3, 320)
+cap.set(3, 160)
 cap.set(4, 180)
 
 #/////////////////////Functions
@@ -67,7 +67,7 @@ def green_processing(frame):
 
 # Function: K Means
 # -------------
-def kmeans(dataSet, k, MAX_ITERATIONS=2):
+def kmeans(dataSet, k, MAX_ITERATIONS=1):
 
     centroids = getRandomCentroids(dataSet, k)
     iterations = 0
@@ -166,7 +166,7 @@ def color_pixel_coord(frame):
 #Behavior
 
 def behavior(centers,lastcenter):
-    destination = 0
+    destination = 80
     distance = abs(centers[0][1]-centers[1][1])
     if (distance>80):
         if (abs(centers[0][1]-lastcenter) < abs(centers[1][1]-lastcenter)):
@@ -177,7 +177,7 @@ def behavior(centers,lastcenter):
         destination = (centers[0][1] + centers[1][1])/2
 #Test
     print("Destination: ",destination,"\n")
-    if (destination>160):
+    if (destination>80):
         print("Tourner à droite")
     else:
         print("Tourner à gauche")
