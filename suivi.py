@@ -14,7 +14,8 @@ COLOR = 0
 print("COLOR = ", COLOR)
 GREEN = 0
 TIME = 1
-largeur = 80
+hauteur = 120
+largeur = 160
 lastcenter = largeur/2
 
 #Initialisation
@@ -22,8 +23,8 @@ cap = cv2.VideoCapture(-1)
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
-cap.set(3, largeur)
-cap.set(4, 180)
+cap.set(3, hauteur)
+cap.set(4, largeur)
 
 #/////////////////////Functions
 
@@ -195,7 +196,7 @@ def get_distance_suivi():
     ret, frame = cap.read()
     print("frame shape avant formattage",frame.shape)
     frame = np.array(frame)
-    frame = frame[:,160:,:]
+    frame = frame[100:]
     t1 = time.time()
     print("frame160:",t1-t0)
     print("frame shape",frame.shape)
