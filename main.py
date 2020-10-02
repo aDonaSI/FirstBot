@@ -12,6 +12,7 @@ def time_exec(f, args):
     f(args)
     return time.time() - before
 
+
 ## tasks
 def task_follow():
     distance_in_image
@@ -19,6 +20,18 @@ def task_follow():
         distance = get_distance_suivi()
     def loop_odom(dt):
         odom_follow(dt, get_current_color())
+
+def follow_line():
+    while 1:
+        lock_wheel()
+        t0 = time.time()
+        distance = get_distance_suivi()
+        #odom_qqch(get_current_color())
+        t1 = time.time()
+        print("time cost:", t1-t0, "distance image:", distance)
+        follow(distance, .5)
+        time.sleep(.5)
+
 
     while get_current_color() < 4:
         time_cost = time_exec(loop_analyse)

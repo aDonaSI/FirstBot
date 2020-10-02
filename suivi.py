@@ -4,7 +4,7 @@
 from threading import Timer
 import cv2
 import numpy as np
-import matplotlib.pylab as plt
+#import matplotlib.pylab as plt
 import colorsys
 from wheel import free_wheel
 
@@ -37,8 +37,8 @@ def pixel_is_green(threevalues):
         return True
     return False
 
-def green_bar_is_detected(frame):#Gérer la saturation
-    #src = frame[160:]
+def green_bar_is_detected(src):#Gérer la saturation
+
 
     h,w = src.shape[0],src.shape[1]
 
@@ -138,26 +138,26 @@ def getCentroids(dataSet, labels, k):
 
 def color_pixel_coord(frame):
     global COLOR
-    h,w = src.shape[0],src.shape[1]
+    h,w = frame.shape[0],frame.shape[1]
     L = []
     if (COLOR == 0):
         for i in range(h):
             for j in range(w):
-                rgb = src[i][j]
+                rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.56) and (hvalue>0.50) and (s>0.7)):
                     L.append([i,j])
     if (COLOR == 1):
         for i in range(h):
             for j in range(w):
-                rgb = src[i][j]
+                rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.10) and (hvalue>0.04) and (s>0.7)):
                     L.append([i,j])
     if (COLOR == 2):
         for i in range(h):
             for j in range(w):
-                rgb = src[i][j]
+                rgb = frame[i][j]
                 hvalue,s,v = colorsys.rgb_to_hsv(rgb[0]/255,rgb[1]/255,rgb[2]/255)
                 if ((hvalue<0.68) and (hvalue>0.64) and (s>0.7)):
                     L.append([i,j])
@@ -191,7 +191,7 @@ def get_distance_suivi():
     global lastcenter
 
     ret, frame = cap.read()
-    src = frame[160:]
+    frame = frame[160:]
     green_processing(frame)
     dataset = color_pixel_coord(frame)
 
@@ -199,10 +199,10 @@ def get_distance_suivi():
         centers = kmeans(dataset,2)
         lastcenter = behavior(centers,lastcenter)
 #Testing
-        cv2.circle(src,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
-        cv2.circle(src,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
-    print("COLOR = ",COLOR,"\n")
-    cv2.imshow("Frame", src)
+       # cv2.circle(frame,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
+       # cv2.circle(frame,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
+    #print("COLOR = ",COLOR,"\n")
+    #cv2.imshow("Frame", frame)
 
     return lastcenter
 #EO Testing
