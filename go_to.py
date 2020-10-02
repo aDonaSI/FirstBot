@@ -93,4 +93,4 @@ def follow(distance, delay):
     distance = dist_cam / math.cos(angle)
 
     #move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio*abs(ratio)), delay)
-    move(distance, angle, delay)
+    move(distance/8, angle/8, delay)
