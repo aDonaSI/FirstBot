@@ -56,7 +56,7 @@ y = 0
 theta = 0
 
 def odom_update():
-    global x, y, theta
+    global x, y, theta, currenttime
 
     if currenttime == 0 :
         dt = 0.1
