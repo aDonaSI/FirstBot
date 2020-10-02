@@ -79,9 +79,23 @@ def go_to_fancy(x,y,angle):
 
     return odom_get()
 
+
+
+list_voila = []
 def follow(distance,delay):
     ratio=distance/image_width
     ratio=(0.5-ratio)*2
+
+    
+    list_voila.append(ratio)
+    if len(list_voila) > 10:
+        list_voila.pop(0)
+    da, n = 0.0, 1
+    for k in range(len(list_voila)):
+        da+= list_voila[k]*k
+        n+= k
+    ratio = da/n
+        
     move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*ratio, delay)
 
 # def pixel_to_world(i,j):

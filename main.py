@@ -13,7 +13,6 @@ def time_exec(f, args):
     return time.time() - before
 
 
-list_voila = []
 
 def follow_line():
     while 1:
@@ -23,20 +22,13 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         
-        ratio=distance/160
-        ratio=(0.5-ratio)*2
+        # ratio=distance/160
+        # ratio=(0.5-ratio)*2
         #print("time cost:", t1-t0, "distance image:", distance)
         
-        list_voila.append(distance)
-        if len(list_voila) > 10:
-            list_voila.pop(0)
-        da, n = 0.0, 1
-        for k in range(len(list_voila)):
-            da+= list_voila[k]*k
-            n+= k
-        follow(da/n, t1-t0)
+        follow(distance, t1-t0)
         #time.sleep(.5)
-        print("da:", da/n, "ratio:", ratio, "is color:", color, "time:", t1-t0)
+        #print("da:", da/n, "ratio:", ratio, "is color:", color, "time:", t1-t0)
 
 
 def task_goto(x, y, theta):
