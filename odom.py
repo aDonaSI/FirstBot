@@ -2,11 +2,22 @@ import pypot.dynamixel
 import time
 import sched
 import math
+import matplotlib.pyplot as plt
 from wheel import get_speed
+
+LjauneX=[]
+LjauneY=[]
+LbleuX=[]
+LbleuY=[]
+LrougeX=[]
+LrougeY=[]
+
+
 
 
 #dt = 0.1
 r = 2.6
+currenttime=0
 
 def direct_kinematics(vg,vd) :
     vd=-vd * r * 2 * math.pi / 44.81  #même sens positif que la roue gauche
@@ -35,6 +46,7 @@ def calc_odom (dt, xprec,yprec,thetaprec) :
     return odom_tick(xprec,yprec,thetaprec,dx,dy,dtheta)
 
 
+
 start = time.time()
 
 Nstep = 0
@@ -43,23 +55,37 @@ x = 0
 y = 0
 theta = 0
 
-def odom_update(dt):
+def odom_update():
     global x, y, theta
+
+    if currenttime == 0 :
+        dt = 0.1
+        currenttime = time.time()
+    else :
+        prectime = currenttime
+        currenttime = time.time()
+        dt = currenttime - prectime
+
     x,y,theta = calc_odom(dt, x,y,theta)
+
+def odom_follow(couleur) :
+    odom_update()
+    if couleur == 0 :
+        LjauneX.append(x)
+        LjauneY.append(y)
+    elif couleur == 1 :
+        LbleuX.append(x)
+        LbleuY.append(y)
+    elif couleur == 1 :
+        LrougeX.append(x)
+        LrougeY.append(y)
+
+def print_circuit() :
+    plt.plot(LjauneX,LjauneY,color='y')
+    plt.plot(LbleuX,LbleuY,color='b')
+    plt.plot(LrougeX, LrougeY, color='r')
+    plt.show()
+
 
 def odom_get():
     return x, y, theta
-
-def idk():
-    dt = .1
-    Nstep = 0
-
-    x = 0
-    y = 0
-    theta = 0
-    while (1) :
-        ctime = time.time() - start
-        if (Nstep*0.05 - round(ctime,3) < 0.01) :
-            x,y,theta = calc_odom(dt, x,y,theta)
-            print (round(x,3),round(y,3),round(theta,3))
-            Nstep += 1
