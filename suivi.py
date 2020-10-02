@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 import matplotlib.pylab as plt
 import colorsys
+from wheel import free_wheel
 
 #Global variables
 COLOR = 0
@@ -183,8 +184,12 @@ def behavior(centers,lastcenter):
 #EO Test
     return destination
 
-#///////////////////Run
-while True:
+def get_current_color():
+    return COLOR
+
+def get_distance_suivi():
+    global lastcenter
+
     ret, frame = cap.read()
     src = frame[160:]
     green_processing(frame)
@@ -193,18 +198,44 @@ while True:
     if (len(dataset)>0):
         centers = kmeans(dataset,2)
         lastcenter = behavior(centers,lastcenter)
-
 #Testing
         cv2.circle(src,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
         cv2.circle(src,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
     print("COLOR = ",COLOR,"\n")
     cv2.imshow("Frame", src)
+
+    return lastcenter
 #EO Testing
 
-    key = cv2.waitKey(1)
-    if key==50:
-        break
+        # key = cv2.waitKey(1)
+        # if key==50:
+            
+        #     break
 
-#Ending
-cap.release()
-cv2.destroyAllWindows()
+#///////////////////Run
+# while True:
+#     ret, frame = cap.read()
+#     src = frame[160:]
+#     green_processing(frame)
+#     dataset = color_pixel_coord(frame)
+
+#     if (len(dataset)>0):
+#         centers = kmeans(dataset,2)
+#         lastcenter = behavior(centers,lastcenter)
+
+# #Testing
+#         cv2.circle(src,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
+#         cv2.circle(src,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
+#     print("COLOR = ",COLOR,"\n")
+#     cv2.imshow("Frame", src)
+# #EO Testing
+
+#     key = cv2.waitKey(1)
+#     if key==50:
+#         break
+
+# #Ending
+def end_camera():
+    free_wheel()
+    cap.release()
+    cv2.destroyAllWindows()

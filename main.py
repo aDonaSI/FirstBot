@@ -1,6 +1,6 @@
 from wheel import move_straight, lock_wheel,move,free_wheel
 from go_to import go_to,go_to_fancy,follow
-import suivi
+from suivi import get_distance_suivi, get_current_color, end_camera
 import time
 import math
 
@@ -31,31 +31,17 @@ def odom():
     print(odom_get())
     time.sleep(.1)
 
+
 def follow_line():
-    while True:
-        ret, frame = cap.read()
-        src = frame[160:]
-        green_processing(frame)
-        dataset = color_pixel_coord(frame)
-
-        if (len(dataset)>0):
-            centers = kmeans(dataset,2)
-            lastcenter = behavior(centers,lastcenter)
-            follow(lastcenter,delay)
-    #Testing
-            cv2.circle(src,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
-            cv2.circle(src,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
-        print("COLOR = ",COLOR,"\n")
-        cv2.imshow("Frame", src)
-    #EO Testing
-
-        key = cv2.waitKey(1)
-        if key==50:
-            free_wheel()
-            break
-
+    while 1:
+        t0 = time.time()
+        distance = get_distance_suivi()
+        #odom_qqch(get_current_color())
+        t1 = time.time()
+        follow(distance, t1-t0)
 
 follow_line()
+end_camera()
 
 #idk()
 
