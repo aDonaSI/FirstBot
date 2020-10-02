@@ -35,7 +35,7 @@ def task_goto(x, y, theta):
 def task_odom():
     free_wheel()
     dt = .1
-    def loop():
+    def loop(_):
         odom_update(dt)
         print(odom_get())
 
