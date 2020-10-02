@@ -21,7 +21,7 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         
-        ratio=distance/image_width
+        ratio=distance/160
         ratio=(0.5-ratio)*2
         print("ratio:", ratio, "is color:", color, "time:", t1-t0)
         #print("time cost:", t1-t0, "distance image:", distance)
