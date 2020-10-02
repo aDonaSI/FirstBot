@@ -89,7 +89,7 @@ def follow(distance, delay):
 
     off = ratio * view_width
 
-    angle = -math.atan(off / dist_cam)
+    angle = xmath.atan(off / dist_cam)
     distance = dist_cam / math.cos(angle)
 
     #move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio*abs(ratio)), delay)
