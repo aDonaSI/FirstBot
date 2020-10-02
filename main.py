@@ -53,7 +53,7 @@ if len(sys.argv) > 1:
 
     elif sys.argv[1] == "goto":
         x, y, theta = float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
-        task_goto()
+        task_goto(x, y, theta)
 
     elif sys.argv[1] == "odom":
         task_odom()
