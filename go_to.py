@@ -96,7 +96,7 @@ def follow(distance,delay):
     #     n+= k
     # ratio = da/n
         
-    move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio**2), delay)
+    move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*(ratio*abs(ratio)), delay)
 
 # def pixel_to_world(i,j):
 #     beta=((h-j)/h)*tetah+beta0
