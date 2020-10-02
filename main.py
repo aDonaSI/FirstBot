@@ -39,7 +39,7 @@ def follow_line():
         distance = get_distance_suivi()
         #odom_qqch(get_current_color())
         t1 = time.time()
-        print("time cost:", t1-t0)
+        print("time cost:", t1-t0, "distance image:", distance)
         follow(distance, .5)
 
 follow_line()
