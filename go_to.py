@@ -83,7 +83,7 @@ def follow(distance,delay):
     ratio=distance/image_width
     ratio=(0.5-ratio)*2
     print(ratio)
-    move(lin_speed*delay*(1-abs(ratio)), ang_speed*delay*ratio, delay)
+    move(lin_speed*delay*(2-abs(ratio))*2, ang_speed*delay*ratio/4, delay)
 
 # def pixel_to_world(i,j):
 #     beta=((h-j)/h)*tetah+beta0
