@@ -193,6 +193,7 @@ def get_distance_suivi():
     global lastcenter
     t0 = time.time()
     ret, frame = cap.read()
+    print("frame shape avant formattage",frame.shape)
     frame = np.array(frame)
     frame = frame[:,160:,:]
     t1 = time.time()
