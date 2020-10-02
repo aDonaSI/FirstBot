@@ -21,16 +21,9 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         print("time cost:", t1-t0, "distance image:", distance)
-        follow(distance, .5)
+        follow(320-distance, .5)
         time.sleep(.5)
 
-
-    while get_current_color() < 4:
-        time_cost = time_exec(loop_analyse)
-        time_cost+= time_exec(loop_odom, time_cost)
-        follow(distance_in_image, time_cost)
-
-    print_circuit()
 
 def task_goto(x, y, theta):
     go_to_fancy(x, y, theta)
