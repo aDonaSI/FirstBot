@@ -21,7 +21,7 @@ def follow_line():
         #odom_qqch(get_current_color())
         t1 = time.time()
         print("time cost:", t1-t0, "distance image:", distance)
-        follow(160-distance, .5)
+        follow(80-distance, .5)
         time.sleep(.5)
 
 
