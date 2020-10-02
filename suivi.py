@@ -4,7 +4,7 @@
 from threading import Timer
 import cv2
 import numpy as np
-import matplotlib.pylab as plt
+#import matplotlib.pylab as plt
 import colorsys
 from wheel import free_wheel
 
@@ -199,10 +199,10 @@ def get_distance_suivi():
         centers = kmeans(dataset,2)
         lastcenter = behavior(centers,lastcenter)
 #Testing
-        cv2.circle(frame,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
-        cv2.circle(frame,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
-    print("COLOR = ",COLOR,"\n")
-    cv2.imshow("Frame", frame)
+       # cv2.circle(frame,(int(centers[0][1]),int(centers[0][0])),1,(255,0,255),3)
+       # cv2.circle(frame,(int(centers[1][1]),int(centers[1][0])),1,(255,0,255),3)
+    #print("COLOR = ",COLOR,"\n")
+    #cv2.imshow("Frame", frame)
 
     return lastcenter
 #EO Testing
